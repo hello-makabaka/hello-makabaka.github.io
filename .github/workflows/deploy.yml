@@ -48,7 +48,7 @@ jobs:
           node-version: 20
           cache: npm # 或 pnpm / yarn
       - name: Clear cache
-        run: rm - rf node_modules/.cache
+        run: rm -rf node_modules/.cache
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Install dependencies
