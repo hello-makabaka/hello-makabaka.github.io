@@ -42,8 +42,6 @@ const { site, theme, page, frontmatter } = useData()
 
 <pre>{{ page }}</pre>
 
-![1760875820119](images/api-examples/1760875820119.png)
-
 ### Page Frontmatter
 
 <pre>{{ frontmatter }}</pre>
