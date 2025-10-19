@@ -9,7 +9,6 @@ export default defineConfig({
   titleTemplate: "个人博客",
   description: "个人博客",
   lang: "zh-CN",
-  cleanUrls: true,
   srcDir: "./docs/",
   markdown: {
     lineNumbers: true
