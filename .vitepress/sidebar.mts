@@ -1,25 +1,71 @@
+/** @format */
+import fs from "fs";
+import path from "path";
 import { DefaultTheme } from "vitepress";
 
-const sidebar: DefaultTheme.Sidebar = {
-  "/blog/html/": [
-    {
-      text: "HTML/CSS",
-      items: [{ text: "创建PWA应用", link: "/blog/html/创建PWA应用" }]
-    }
-  ],
+function getMarkdownTitle(filePath: string): string {
+  const content = fs.readFileSync(filePath, "utf-8");
+  const match = content.match(/title:\s*(.*)/);
+  return match ? match[1] : path.basename(filePath, ".md");
+}
 
-  // 游戏开发侧边栏
-  "/blog/shader/": [
-    {
-      text: "Shader",
-      items: [
-        {
-          text: "常用数学函数",
-          link: "/blog/shader/常用数学函数"
-        }
-      ]
+function generateSidebarItems(dir: string, sidebar: DefaultTheme.SidebarItem[] = []) {
+  if (!fs.existsSync(dir)) {
+    console.error(`Directory not found: ${dir}`);
+    return sidebar;
+  }
+
+  const entries = fs.readdirSync(dir, { withFileTypes: true });
+
+  entries.forEach(entry => {
+    const fullPath = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      const childItems: DefaultTheme.SidebarItem[] = [];
+      generateSidebarItems(fullPath, childItems);
+      if (childItems.length > 0) {
+        sidebar.push({
+          text: entry.name,
+          collapsed: true,
+          items: childItems
+        });
+      }
+    } else if (entry.isFile() && entry.name.endsWith(".md") && entry.name !== "index.md") {
+      const title = getMarkdownTitle(fullPath);
+      const link = path
+        .relative("./docs", fullPath)
+        .replace(/\\/g, "/")
+        .replace(/\.md$/, "")
+        .replace(/\/README$/, "/");
+      sidebar.push({
+        text: title,
+        link: `/${link}`
+      });
     }
-  ]
+  });
+
+  return sidebar;
+}
+
+function sortSidebarItems(items) {
+  items.sort((a, b) => a.text.localeCompare(b.text));
+  return items;
+}
+
+function generateSidebar(dir: string): DefaultTheme.SidebarItem[] {
+  return [
+    {
+      text: dir.split("/").pop() || "",
+      items: sortSidebarItems(generateSidebarItems(dir))
+    }
+  ];
+}
+
+const sidebar: DefaultTheme.Sidebar = {
+  "/blog/Unity3D/": generateSidebar("./docs/blog/Unity3D"),
+  "/blog/Vue.js/": generateSidebar("./docs/blog/Vue.js"),
+  "/blog/Shader/": generateSidebar("./docs/blog/Shader"),
+  "/blog/HTML&CSS/": generateSidebar("./docs/blog/HTML&CSS"),
+
 };
 
 export default sidebar;

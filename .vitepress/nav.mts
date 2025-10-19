@@ -10,18 +10,15 @@ const nav: DefaultTheme.NavItem[] = [
       {
         text: "游戏开发",
         items: [
-          { text: "Unity3D", link: "/blog/unity/" },
-          // { text: "Unreal Engine", link: "/blog/unreal" },
-          // { text: "Cocos Creator", link: "/blog/cocos" },
-          { text: "Shader", link: "/blog/shader/" }
+          { text: "Unity3D", link: "/blog/Unity3D/" },
+          { text: "Shader", link: "/blog/Shader/" }
         ]
       },
       {
         text: "前端开发",
         items: [
-          { text: "HTML/CSS", link: "/blog/html/" },
-          // { text: "JavaScript", link: "/blog/js" },
-          { text: "Vue.js", link: "/blog/vue/" }
+          { text: "HTML&CSS", link: "/blog/HTML&CSS/" },
+          { text: "Vue.js", link: "/blog/Vue.js/" }
         ]
       },
       {

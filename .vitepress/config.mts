@@ -6,6 +6,7 @@ import sidebar from "./sidebar.mts";
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "Hello Makabaka",
+  titleTemplate: "个人博客",
   description: "个人博客",
   lang: "zh-CN",
   cleanUrls: true,
