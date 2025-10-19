@@ -30,8 +30,8 @@ jobs:
     steps:
       - name: Set encoding
         run: |
-          export LC_ALL=en_US.UTF - 8
-          export LANG=en_US.UTF - 8
+          export LC_ALL=en_US.UTF-8
+          export LANG=en_US.UTF-8
       - name: Checkout
         uses: actions/checkout@v4
         with:
