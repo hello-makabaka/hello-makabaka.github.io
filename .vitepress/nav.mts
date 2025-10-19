@@ -20,15 +20,6 @@ const nav: DefaultTheme.NavItem[] = [
           { text: "HTML&CSS", link: "/blog/HTML&CSS/" },
           { text: "Vue.js", link: "/blog/Vue.js/" }
         ]
-      },
-      {
-        text: "后端开发",
-        items: [
-          // { text: "Database", link: "/blog/database" },
-          // { text: "Node.js", link: "/blog/nodejs" },
-          // { text: "NestJS", link: "/blog/nestjs" },
-          // { text: "Prisma", link: "/blog/prisma/" }
-        ]
       }
     ]
   }
