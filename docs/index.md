@@ -4,8 +4,8 @@ layout: home
 
 hero:
   name: "Hello Makabaka"
-  text: "A VitePress Site"
-  tagline: My great project tagline
+  text: "个人博客"
+  tagline: 想成功,先发疯,不顾一切向钱冲,拼一次富三代,拼命才能不失败,开卷!!!
   actions:
     - theme: brand
       text: Markdown Examples
@@ -17,9 +17,4 @@ hero:
 features:
   - title: Feature A
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 ---
-
