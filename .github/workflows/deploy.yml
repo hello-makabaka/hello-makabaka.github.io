@@ -28,6 +28,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Set encoding
+        run: |
+          export LC_ALL=en_US.UTF - 8
+          export LANG=en_US.UTF - 8
       - name: Checkout
         uses: actions/checkout@v4
         with:
