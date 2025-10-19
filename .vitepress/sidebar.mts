@@ -9,7 +9,7 @@ function getMarkdownTitle(filePath: string): string {
   return match ? match[1] : path.basename(filePath, ".md");
 }
 
-function generateSidebarItems(dir: string, sidebar: DefaultTheme.SidebarItem[] = []) {
+function genSidebarItems(dir: string, sidebar: DefaultTheme.SidebarItem[] = []) {
   if (!fs.existsSync(dir)) {
     console.error(`Directory not found: ${dir}`);
     return sidebar;
@@ -21,7 +21,7 @@ function generateSidebarItems(dir: string, sidebar: DefaultTheme.SidebarItem[] =
     const fullPath = path.join(dir, entry.name);
     if (entry.isDirectory()) {
       const childItems: DefaultTheme.SidebarItem[] = [];
-      generateSidebarItems(fullPath, childItems);
+      genSidebarItems(fullPath, childItems);
       if (childItems.length > 0) {
         sidebar.push({
           text: entry.name,
@@ -51,21 +51,20 @@ function sortSidebarItems(items) {
   return items;
 }
 
-function generateSidebar(dir: string): DefaultTheme.SidebarItem[] {
+function genSidebar(dir: string): DefaultTheme.SidebarItem[] {
   return [
     {
       text: dir.split("/").pop() || "",
-      items: sortSidebarItems(generateSidebarItems(dir))
+      items: sortSidebarItems(genSidebarItems(dir))
     }
   ];
 }
 
 const sidebar: DefaultTheme.Sidebar = {
-  "/blog/Unity3D/": generateSidebar("./docs/blog/Unity3D"),
-  "/blog/Vue.js/": generateSidebar("./docs/blog/Vue.js"),
-  "/blog/Shader/": generateSidebar("./docs/blog/Shader"),
-  "/blog/HTML&CSS/": generateSidebar("./docs/blog/HTML&CSS"),
-
+  "/blog/Unity3D/": genSidebar("./docs/blog/Unity3D"),
+  "/blog/Vue.js/": genSidebar("./docs/blog/Vue.js"),
+  "/blog/Shader/": genSidebar("./docs/blog/Shader"),
+  "/blog/HTML&CSS/": genSidebar("./docs/blog/HTML&CSS"),
 };
 
 export default sidebar;
