@@ -1,20 +1,21 @@
 import { DefaultTheme } from "vitepress";
 
 const sidebar: DefaultTheme.Sidebar = {
-  // 前端开发侧边栏
-  "/frontend/": [],
-
-  // 后端开发侧边栏
-  "/backend/": [],
+  "/blog/html": [
+    {
+      text: "HTML/CSS",
+      items: [{ text: "创建PWA应用", link: "blog/html/创建PWA应用" }]
+    }
+  ],
 
   // 游戏开发侧边栏
-  "/game_dev/shader": [
+  "/blog/shader": [
     {
       text: "Shader",
       items: [
         {
           text: "常用数学函数",
-          link: "game_dev/shader/常用数学函数"
+          link: "blog/shader/常用数学函数"
         }
       ]
     }

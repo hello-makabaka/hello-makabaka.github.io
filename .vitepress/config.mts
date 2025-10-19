@@ -7,8 +7,13 @@ import sidebar from "./sidebar.mts";
 export default defineConfig({
   title: "Hello Makabaka",
   description: "个人博客",
+  lang: "zh-CN",
   cleanUrls: true,
   srcDir: "./docs/",
+  markdown: {
+    lineNumbers: true
+  },
+  lastUpdated: true,
   themeConfig: {
     logo: "/logo.png",
     nav,
@@ -16,6 +21,9 @@ export default defineConfig({
     search: {
       provider: "local"
     },
-    socialLinks: [{ icon: "github", link: "https://github.com/hello-makabaka" }]
+    socialLinks: [
+      { icon: "github", link: "https://github.com/hello-makabaka", ariaLabel: "GitHub" },
+      { icon: "bilibili", link: "https://space.bilibili.com/377619410", ariaLabel: "Bilibili" }
+    ]
   }
 });
