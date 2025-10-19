@@ -1,0 +1,28 @@
+{
+  "name": "hello-makabaka.github.io",
+  "version": "1.0.0",
+  "description": "makabaka",
+  "homepage": "https://github.com/hello-makabaka/hello-makabaka.github.io#readme",
+  "bugs": {
+    "url": "https://github.com/hello-makabaka/hello-makabaka.github.io/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hello-makabaka/hello-makabaka.github.io.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
+  },
+  "devDependencies": {
+    "vitepress": "^1.6.4"
+  }
+}
